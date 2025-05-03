@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Teacher Dashboard - BrightPath</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    .custom-bg { background-color: #6A0DAD; }
+    .custom-hover:hover { background-color: #580b99 !important; }
+    .custom-text { color: #6A0DAD; }
+    @media (max-width: 768px) {
+      #sidebar {
+        position: fixed;
+        z-index: 1030;
+        height: 100vh;
+        left: -250px;
+        width: 250px;
+        transition: left 0.3s;
+        background-color: white;
+        box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+      }
+      #sidebar.show { left: 0; }
+    }
+    #studentChart {
+      height: 250px !important;
+      width: 100% !important;
+    }
+    .dashboard-images img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+    .dashboard-images img:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body class="bg-light">
+
+<nav class="navbar navbar-light bg-white shadow d-md-none">
+  <div class="container-fluid">
+    <button class="btn custom-bg text-white" id="menu-toggle">☰</button>
+    <span class="navbar-brand ms-3 mb-0 h1 custom-text">BrightPath</span>
+  </div>
+</nav>
+
+<div class="d-flex vh-100 overflow-hidden">
+    <div class="bg-white border-end shadow" id="sidebar" style="width: 250px;">
+        <div class="custom-bg text-white text-center py-3">
+          <h1 class="fs-4 fw-bold">BrightPath</h1>
+        </div>
+        <div class="list-group list-group-flush mt-3">
+          <a href="index.html" class="list-group-item list-group-item-action">Dashboard</a>
+          <a href="students.html" class="list-group-item list-group-item-action">Student</a>
+          <a href="game.html" class="list-group-item list-group-item-action">Game</a>
+          <a href="../settings.php" class="list-group-item list-group-item-action">Settings</a>
+          <a href="../logout.php" class="list-group-item list-group-item-action">Logout</a>
+        </div>
+      </div>
+
+  <div class="flex-grow-1 p-4 overflow-auto">
+    <div class="d-flex justify-content-between align-items-center mb-4 p-3 rounded text-white custom-bg shadow flex-wrap">
+      <h3>Welcome, Sir/Ma'am Teacher!</h3>
+    </div>
+
+    <div class="row g-4">
+      <!-- 4 Pics 1 Word Registration (3 forms) -->
+      <div class="col-lg-4">
+        <div class="card shadow">
+          <div class="card-body">
+            <h4 class="text-center mb-3">Register 4 Pics 1 Word (Set 1)</h4>
+            <form action="" method="POST" enctype="multipart/form-data">
+              <div class="mb-3">
+                <label for="four_word_images" class="form-label">Upload 4 Images</label>
+                <input type="file" class="form-control" name="four_word_images[]" accept="image/*" multiple required>
+                <small class="text-muted">Upload exactly 4 images.</small>
+              </div>
+              <div class="mb-3">
+                <label for="four_word_answer" class="form-label">Answer Word</label>
+                <input type="text" class="form-control" name="four_word_answer" required maxlength="50">
+              </div>
+              <button type="submit" class="btn custom-bg text-white">Register Game</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Duplicate the above column for 2 more sets of 4 Pics 1 Word -->
+      <div class="col-lg-4">
+        <div class="card shadow">
+          <div class="card-body">
+            <h4 class="text-center mb-3">Register 4 Pics 1 Word (Set 2)</h4>
+            <form action="" method="POST" enctype="multipart/form-data">
+              <div class="mb-3">
+                <label for="four_word_images" class="form-label">Upload 4 Images</label>
+                <input type="file" class="form-control" name="four_word_images[]" accept="image/*" multiple required>
+                <small class="text-muted">Upload exactly 4 images.</small>
+              </div>
+              <div class="mb-3">
+                <label for="four_word_answer" class="form-label">Answer Word</label>
+                <input type="text" class="form-control" name="four_word_answer" required maxlength="50">
+              </div>
+              <button type="submit" class="btn custom-bg text-white">Register Game</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="card shadow">
+          <div class="card-body">
+            <h4 class="text-center mb-3">Register 4 Pics 1 Word (Set 3)</h4>
+            <form action="" method="POST" enctype="multipart/form-data">
+              <div class="mb-3">
+                <label for="four_word_images" class="form-label">Upload 4 Images</label>
+                <input type="file" class="form-control" name="four_word_images[]" accept="image/*" multiple required>
+                <small class="text-muted">Upload exactly 4 images.</small>
+              </div>
+              <div class="mb-3">
+                <label for="four_word_answer" class="form-label">Answer Word</label>
+                <input type="text" class="form-control" name="four_word_answer" required maxlength="50">
+              </div>
+              <button type="submit" class="btn custom-bg text-white">Register Game</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Upload Images -->
+      <div class="col-lg-4">
+        <div class="card shadow">
+          <div class="card-body">
+            <h4 class="text-center mb-3">Upload Puzzle Images</h4>
+            <form action="" method="POST" enctype="multipart/form-data">
+              <div class="mb-3">
+                <label for="images" class="form-label">Choose Images</label>
+                <input type="file" class="form-control" id="images" name="images[]" accept="image/*" multiple required>
+              </div>
+              <button type="submit" class="btn custom-bg text-white">Upload</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Register Words -->
+      <div class="col-lg-4">
+        <div class="card shadow">
+          <div class="card-body">
+            <h4 class="text-center mb-3">Register Crossword Words</h4>
+            <form action="" method="POST">
+              <div style="max-height: 300px; overflow-y: auto;">
+                <div class="mb-2">
+                  <input type="text" class="form-control" name="words[]" placeholder="Word 1" maxlength="50">
+                </div>
+                <div class="mb-2">
+                  <input type="text" class="form-control" name="words[]" placeholder="Word 2" maxlength="50">
+                </div>
+                <div class="mb-2">
+                  <input type="text" class="form-control" name="words[]" placeholder="Word 3" maxlength="50">
+                </div>
+                <div class="mb-2">
+                  <input type="text" class="form-control" name="words[]" placeholder="Word 4" maxlength="50">
+                </div>
+                <!-- Add more word inputs as needed -->
+              </div>
+              <button type="submit" class="btn custom-bg text-white mt-2">Register Words</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

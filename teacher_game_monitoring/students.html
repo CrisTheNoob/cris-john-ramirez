@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Teacher Dashboard - BrightPath</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .custom-bg {
+      background-color: #6A0DAD;
+    }
+    .custom-hover:hover {
+      background-color: #580b99 !important;
+    }
+    .custom-text {
+      color: #6A0DAD;
+    }
+    @media (max-width: 768px) {
+      #sidebar {
+        position: absolute;
+        z-index: 1030;
+        height: 100%;
+        left: -250px;
+        transition: left 0.3s;
+      }
+      #sidebar.show {
+        left: 0;
+      }
+    }
+  </style>
+</head>
+<body class="bg-light">
+
+  <!-- Top Navbar for small screens -->
+  <nav class="navbar navbar-light bg-white shadow d-md-none">
+    <div class="container-fluid">
+      <button class="btn custom-bg text-white" id="menu-toggle">☰</button>
+      <span class="navbar-brand ms-3 mb-0 h1 custom-text">BrightPath</span>
+    </div>
+  </nav>
+
+  <div class="d-flex vh-100 overflow-hidden">
+
+    <!-- Sidebar -->
+    <div class="bg-white border-end shadow" id="sidebar" style="width: 250px;">
+        <div class="custom-bg text-white text-center py-3">
+          <h1 class="fs-4 fw-bold">BrightPath</h1>
+        </div>
+        <div class="list-group list-group-flush mt-3">
+          <a href="index.html" class="list-group-item list-group-item-action">Dashboard</a>
+          <a href="students.html" class="list-group-item list-group-item-action">Student</a>
+          <a href="game.html" class="list-group-item list-group-item-action">Game</a>
+          <a href="../settings.php" class="list-group-item list-group-item-action">Settings</a>
+          <a href="../logout.php" class="list-group-item list-group-item-action">Logout</a>
+        </div>
+      </div>
+
+    <!-- Main Content -->
+    <div class="flex-grow-1 p-4 overflow-auto">
+
+      <div class="d-flex justify-content-between align-items-center mb-4 p-3 rounded text-white custom-bg shadow flex-wrap">
+        <h3>Register Student</h3>
+      </div>
+
+      <!-- Register Student Button -->
+      <div class="mb-3 text-end">
+        <button class="btn custom-bg text-white" data-bs-toggle="modal" data-bs-target="#registerStudentModal">
+          + Register Student
+        </button>
+      </div>
+
+      <!-- Student Table -->
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+              <thead class="table-light">
+                <tr>
+                  <th>Student ID</th>
+                  <th>Student Name</th>
+                  <th>Grade</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Example data row -->
+                <tr>
+                  <td>202501</td>
+                  <td>Juan Dela Cruz</td>
+                  <td>Grade 5</td>
+                  <td>
+                    <a href="#" class="btn btn-sm btn-primary">Edit</a>
+                    <a href="#" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">Delete</a>
+                  </td>
+                </tr>
+                <tr><td colspan="4" class="text-center">No more students found</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+<!-- Registration Modal -->
+<div class="modal fade" id="registerStudentModal" tabindex="-1" aria-labelledby="registerStudentModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <form>
+        <div class="modal-header custom-bg text-white">
+          <h5 class="modal-title" id="registerStudentModalLabel">Register New Student</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="studentId" class="form-label">Student ID</label>
+            <input type="text" class="form-control" id="studentId" required>
+          </div>
+          <div class="mb-3">
+            <label for="studentName" class="form-label">Student Name</label>
+            <input type="text" class="form-control" id="studentName" required>
+          </div>
+          <div class="mb-3">
+            <label for="grade" class="form-label">Grade</label>
+            <select class="form-select" id="grade" required>
+              <option value="">Select Grade</option>
+              <option value="Grade 4">Grade 4</option>
+              <option value="Grade 5">Grade 5</option>
+              <option value="Grade 6">Grade 6</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn custom-bg text-white">Register</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const sidebar = document.getElementById('sidebar');
+  menuToggle.addEventListener('click', () => {
+    sidebar.classList.toggle('show');
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

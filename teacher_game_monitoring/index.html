@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Teacher Dashboard - BrightPath</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    .custom-bg { background-color: #6A0DAD; }
+    .custom-hover:hover { background-color: #580b99 !important; }
+    .custom-text { color: #6A0DAD; }
+    @media (max-width: 768px) {
+      #sidebar {
+        position: fixed;
+        z-index: 1030;
+        height: 100vh;
+        left: -250px;
+        width: 250px;
+        transition: left 0.3s;
+        background-color: white;
+        box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+      }
+      #sidebar.show { left: 0; }
+    }
+    #studentChart {
+      height: 250px !important;
+      width: 100% !important;
+    }
+  </style>
+</head>
+<body class="bg-light">
+
+  <!-- Top Navbar for small screens -->
+  <nav class="navbar navbar-light bg-white shadow d-md-none">
+    <div class="container-fluid">
+      <button class="btn custom-bg text-white" id="menu-toggle">☰</button>
+      <span class="navbar-brand ms-3 mb-0 h1 custom-text">BrightPath</span>
+    </div>
+  </nav>
+
+  <div class="d-flex vh-100 overflow-hidden">
+    <!-- Sidebar -->
+    <div class="bg-white border-end shadow" id="sidebar" style="width: 250px;">
+      <div class="custom-bg text-white text-center py-3">
+        <h1 class="fs-4 fw-bold">BrightPath</h1>
+      </div>
+      <div class="list-group list-group-flush mt-3">
+        <a href="index.html" class="list-group-item list-group-item-action">Dashboard</a>
+        <a href="students.html" class="list-group-item list-group-item-action">Student</a>
+        <a href="game.html" class="list-group-item list-group-item-action">Game</a>
+        <a href="../settings.php" class="list-group-item list-group-item-action">Settings</a>
+        <a href="../logout.php" class="list-group-item list-group-item-action">Logout</a>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex-grow-1 p-4 overflow-auto">
+      <!-- Header -->
+      <div class="d-flex justify-content-between align-items-center mb-4 p-3 rounded text-white custom-bg shadow flex-wrap">
+        <h3>Welcome, Sir/Ma'am John Doe!</h3>
+      </div>
+
+      <!-- Dashboard Cards -->
+      <div class="row g-4">
+        <!-- Total Students -->
+        <div class="col-sm-6 col-lg-4">
+          <div class="card shadow-sm">
+            <div class="card-body d-flex align-items-center">
+              <div class="bg-primary bg-opacity-10 text-primary p-3 rounded-circle me-3">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-people" viewBox="0 0 16 16">
+                  <path d="M13 7c0 1.105-.895 2-2 2s-2-.895-2-2 .895-2 2-2 2 .895 2 2zM3 7c0 1.105.895 2 2 2s2-.895 2-2-.895-2-2-2-2 .895-2 2z"/>
+                  <path fill-rule="evenodd" d="M4.216 14A2.238 2.238 0 0 1 2 12c0-1.105 2.686-2 6-2s6 .895 6 2c0 .942-.966 1.71-2.216 2H4.216z"/>
+                </svg>
+              </div>
+              <div>
+                <h5 class="card-title">Total Students</h5>
+                <p class="h4 text-primary mb-0">100</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Total Passed -->
+        <div class="col-sm-6 col-lg-4">
+          <div class="card shadow-sm">
+            <div class="card-body d-flex align-items-center">
+              <div class="bg-success bg-opacity-10 text-success p-3 rounded-circle me-3">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-check2-circle" viewBox="0 0 16 16">
+                  <path d="M2.5 8a5.5 5.5 0 1 1 11 0A5.5 5.5 0 0 1 2.5 8zM8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14z"/>
+                  <path d="M10.97 5.97a.75.75 0 1 0-1.06-1.06L7.5 7.293 6.03 5.97a.75.75 0 0 0-1.06 1.06l1.75 1.75a.75.75 0 0 0 1.06 0l3.19-3.19z"/>
+                </svg>
+              </div>
+              <div>
+                <h5 class="card-title">Total Passed</h5>
+                <p class="h4 text-success mb-0">85</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Total Failed -->
+        <div class="col-sm-6 col-lg-4">
+          <div class="card shadow-sm">
+            <div class="card-body d-flex align-items-center">
+              <div class="bg-danger bg-opacity-10 text-danger p-3 rounded-circle me-3">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm3.354-9.354a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646z"/>
+                </svg>
+              </div>
+              <div>
+                <h5 class="card-title">Total Failed</h5>
+                <p class="h4 text-danger mb-0">15</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Chart Section -->
+      <div class="card mt-4 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title mb-3">Student Summary Chart</h5>
+          <canvas id="studentChart"></canvas>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const sidebar = document.getElementById('sidebar');
+
+    if (menuToggle && sidebar) {
+      menuToggle.addEventListener('click', () => {
+        sidebar.classList.toggle('show');
+      });
+    }
+
+    const ctx = document.getElementById('studentChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'pie',
+      data: {
+        labels: ['Total Students', 'Total Passed', 'Total Failed'],
+        datasets: [{
+          label: 'Student Data',
+          data: [100, 85, 15],
+          backgroundColor: ['#6A0DAD', '#28a745', '#dc3545'],
+          hoverOffset: 4
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        aspectRatio: 3,
+        plugins: {
+          legend: {
+            position: 'top',
+          },
+          tooltip: {
+            callbacks: {
+              label: function(tooltipItem) {
+                return tooltipItem.label + ': ' + tooltipItem.raw;
+              }
+            }
+          }
+        }
+      }
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
