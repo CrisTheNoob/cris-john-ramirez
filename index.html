@@ -7,6 +7,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
     body {
       font-family: 'Fira Code', monospace;
@@ -47,8 +48,6 @@
       padding: 2px 6px;
       border-radius: 4px;
     }
-  
-    /* Mobile responsiveness */
     @media (max-width: 576px) {
       .hero h1 {
         font-size: 2rem;
@@ -65,7 +64,6 @@
       }
     }
   </style>
-  
 </head>
 <body>
 
@@ -89,171 +87,178 @@
 
 <!-- Hero -->
 <section id="hero" class="hero">
-    <div class="container">
-      <h1>Hello, I'm <span class="text-primary">Cris John Ramirez</span></h1>
-      <p class="lead">> I am a <strong>Software Developer</strong> specializing in <strong>Full-Stack Development</strong>, <strong>Backend Development</strong>, <strong>IoT</strong>, <strong>Mobile Apps</strong>, and <strong>Artificial Intelligence</strong>.</p>
-      <a href="#projects" class="btn btn-outline-light mt-3"><i class="bi bi-terminal"></i> View Projects</a>
-    </div>
-  </section>
-  
-  
+  <div class="container">
+    <h1>Hello, I'm <span class="text-primary">Cris John Ramirez</span></h1>
+    <p class="lead">> I am a <strong>Software Developer</strong> specializing in <strong>Full-Stack Development</strong>, <strong>Backend Development</strong>, <strong>IoT</strong>, <strong>Mobile Apps</strong>, and <strong>Artificial Intelligence</strong>.</p>
+    <a href="#projects" class="btn btn-outline-light mt-3"><i class="bi bi-terminal"></i> View Projects</a>
+  </div>
+</section>
 
-<!-- About -->
 <!-- About -->
 <section id="about" class="py-5">
-    <div class="container">
-      <h2 class="section-title"><i class="bi bi-person-workspace"></i> About Me</h2>
-      <p>
-        I’m a passionate and detail-oriented software developer with hands-on experience in building web and software solutions. 
-        I specialize in full-stack development using modern languages and frameworks such as <code>Python</code>, <code>Java</code>, <code>JavaScript</code>, <code>PHP</code>, and <code>C++</code>. 
-        I enjoy solving problems, collaborating with teams, and constantly learning new technologies to create efficient and scalable applications.
-      </p>
-    </div>
-  </section>
-  
-  <!-- Skills -->
-  <section id="skills" class="py-5 bg-dark">
-    <div class="container">
-      <h2 class="section-title text-white"><i class="bi bi-terminal-dash"></i> Skills</h2>
-  
-      <div class="row">
-        <!-- Languages -->
-        <div class="col-md-4 mb-4">
-          <h5 class="text-primary"><i class="bi bi-code"></i> Programming Languages</h5>
-          <ul class="list-unstyled">
-            <li><code>Python</code></li>
-            <li><code>Java</code></li>
-            <li><code>JavaScript</code></li>
-            <li><code>PHP</code></li>
-            <li><code>C++</code></li>
-          </ul>
-        </div>
-  
-        <!-- Frameworks -->
-        <div class="col-md-4 mb-4">
-          <h5 class="text-success"><i class="bi bi-layers-half"></i> Frameworks</h5>
-          <ul class="list-unstyled">
-            <li><code>Django</code></li>
-            <li><code>Laravel</code></li>
-            <li><code>Bootstrap</code></li>
-            <li><code>Tailwind CSS</code></li>
-          </ul>
-        </div>
-  
-        <!-- Tools -->
-        <div class="col-md-4 mb-4">
-          <h5 class="text-warning"><i class="bi bi-tools"></i> Tools</h5>
-          <ul class="list-unstyled">
-            <li><code>Cursor IDE</code>, <code>Postman</code>, <code>Spring Tool Suite</code></li>
-            <li><code>Adobe Suite</code>, <code>DBeaver</code>, <code>XAMPP</code></li>
-            <li><code>Arduino IDE</code></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-  
+  <div class="container">
+    <h2 class="section-title"><i class="bi bi-person-workspace"></i> About Me</h2>
+    <p>
+      I’m a passionate and detail-oriented software developer with hands-on experience in building web and software solutions. 
+      I specialize in full-stack development using modern languages and frameworks such as <code>Python</code>, <code>Java</code>, <code>JavaScript</code>, <code>PHP</code>, and <code>C++</code>. 
+      I enjoy solving problems, collaborating with teams, and constantly learning new technologies to create efficient and scalable applications.
+    </p>
+  </div>
+</section>
 
-  <section id="projects" class="py-5">
-    <div class="container">
-      <h2 class="section-title"><i class="bi bi-diagram-3"></i> Projects</h2>
-      <div class="row">
-  
-        <div class="col-md-6 mb-4">
-          <div class="card p-3">
-            <h5 class="card-title">SmartBin Waste Management (IoT)</h5>
-            <p class="card-text">A smart garbage bin system that uses sensors and IoT to monitor waste levels and alert for collection.</p>
-            <a href="#" target="_blank" class="btn btn-primary">Live Preview</a>
-          </div>
-        </div>
-  
-        <div class="col-md-6 mb-4">
-          <div class="card p-3">
-            <h5 class="card-title">Water Level Sensor System</h5>
-            <p class="card-text">An automated monitoring system to detect and manage water levels, ideal for tanks or flood-prone areas.</p>
-            <a href="#" target="_blank" class="btn btn-primary">Live Preview</a>
-          </div>
-        </div>
-  
-        <div class="col-md-6 mb-4">
-          <div class="card p-3">
-            <h5 class="card-title">Camera Nudity Blur Detection</h5>
-            <p class="card-text">A camera system that automatically detects nudity and blurs inappropriate content using computer vision.</p>
-            <a href="#" target="_blank" class="btn btn-primary">Live Preview</a>
-          </div>
-        </div>
-  
-        <div class="col-md-6 mb-4">
-          <div class="card p-3">
-            <h5 class="card-title">Parking System with IoT</h5>
-            <p class="card-text">An intelligent IoT-based system for real-time parking slot monitoring and availability tracking.</p>
-            <a href="#" target="_blank" class="btn btn-primary">Live Preview</a>
-          </div>
-        </div>
-  
-        <div class="col-md-6 mb-4">
-          <div class="card p-3">
-            <h5 class="card-title">RFID Attendance System</h5>
-            <p class="card-text">A contactless student and teacher attendance system using RFID and real-time web interface.</p>
-            <a href="#" target="_blank" class="btn btn-primary">Live Preview</a>
-          </div>
-        </div>
-  
-        <div class="col-md-6 mb-4">
-          <div class="card p-3">
-            <h5 class="card-title">Inventory System with IoT</h5>
-            <p class="card-text">A smart inventory tracker with sensors and automated updates to a centralized database.</p>
-            <a href="#" target="_blank" class="btn btn-primary">Live Preview</a>
-          </div>
-        </div>
-  
-        <div class="col-md-6 mb-4">
-          <div class="card p-3">
-            <h5 class="card-title">Fall Detection System</h5>
-            <p class="card-text">A fall detection system that uses sensors and GSM for emergency alerts, ideal for elderly care.</p>
-            <a href="#" target="_blank" class="btn btn-primary">Live Preview</a>
-          </div>
-        </div>
-  
-        <div class="col-md-6 mb-4">
-          <div class="card p-3">
-            <h5 class="card-title">Teacher Game Monitoring with Game App</h5>
-            <p class="card-text">An app and dashboard that tracks game-based learning sessions and student performance in real time.</p>
-            <a href="teacher_game_monitoring/index.html" target="_blank" class="btn btn-primary">Live Preview</a>
-          </div>
-        </div>
-  
-        <div class="col-md-6 mb-4">
-          <div class="card p-3">
-            <h5 class="card-title">Skills Matched System</h5>
-            <p class="card-text">A system that matches user skills with available roles or jobs based on stored criteria.</p>
-            <a href="#" target="_blank" class="btn btn-primary">Live Preview</a>
-          </div>
-        </div>
-  
+<!-- Skills -->
+<section id="skills" class="py-5 bg-dark">
+  <div class="container">
+    <h2 class="section-title text-white"><i class="bi bi-terminal-dash"></i> Skills</h2>
+    <div class="row">
+      <div class="col-md-4 mb-4">
+        <h5 class="text-primary"><i class="bi bi-code"></i> Programming Languages</h5>
+        <ul class="list-unstyled">
+          <li><code>Python</code></li>
+          <li><code>Java</code></li>
+          <li><code>JavaScript</code></li>
+          <li><code>PHP</code></li>
+          <li><code>C++</code></li>
+        </ul>
+      </div>
+      <div class="col-md-4 mb-4">
+        <h5 class="text-success"><i class="bi bi-layers-half"></i> Frameworks</h5>
+        <ul class="list-unstyled">
+          <li><code>Django</code></li>
+          <li><code>Laravel</code></li>
+          <li><code>Bootstrap</code></li>
+          <li><code>Tailwind CSS</code></li>
+        </ul>
+      </div>
+      <div class="col-md-4 mb-4">
+        <h5 class="text-warning"><i class="bi bi-tools"></i> Tools</h5>
+        <ul class="list-unstyled">
+          <li><code>Cursor IDE</code>, <code>Postman</code>, <code>Spring Tool Suite</code></li>
+          <li><code>Adobe Suite</code>, <code>DBeaver</code>, <code>XAMPP</code></li>
+          <li><code>Arduino IDE</code></li>
+        </ul>
       </div>
     </div>
-  </section>
-  
+  </div>
+</section>
+
+<!-- Me Making the System - Autoplay Video Section -->
+<section id="making-video" class="py-5 bg-dark text-white">
+  <div class="container">
+    <h2 class="section-title text-white text-center mb-4" data-aos="fade-down">
+      <i class="bi bi-camera-video"></i> Me Making the System
+    </h2>
+    <div class="row justify-content-center">
+      <div class="col-md-10 col-lg-8" data-aos="fade-up" data-aos-delay="200">
+        <div class="card bg-black border-0 shadow-lg rounded-4">
+          <div class="card-body p-0 overflow-hidden">
+            <video
+              autoplay
+              loop
+              muted
+              playsinline
+              class="w-100 rounded-4"
+              style="object-fit: cover; max-height: 500px;"
+            >
+              <source src="videos/cris.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+        <p class="mt-3 text-center" data-aos="fade-in" data-aos-delay="300">
+          This video showcases my hands-on process building the system — from wiring the components to uploading the code and testing everything live.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- Projects -->
+<section id="projects" class="py-5">
+  <div class="container">
+    <h2 class="section-title"><i class="bi bi-diagram-3"></i> Projects</h2>
+    <div class="row">
+      <div class="col-md-6 mb-4">
+        <div class="card p-3">
+          <h5 class="card-title">SmartBin Waste Management (IoT)</h5>
+          <p class="card-text">A smart garbage bin system that uses sensors and IoT to monitor waste levels and alert for collection.</p>
+          <a href="#" target="_blank" class="btn btn-primary">Live Preview</a>
+        </div>
+      </div>
+      <div class="col-md-6 mb-4">
+        <div class="card p-3">
+          <h5 class="card-title">Water Level Sensor System</h5>
+          <p class="card-text">An automated monitoring system to detect and manage water levels, ideal for tanks or flood-prone areas.</p>
+          <a href="#" target="_blank" class="btn btn-primary">Live Preview</a>
+        </div>
+      </div>
+      <div class="col-md-6 mb-4">
+        <div class="card p-3">
+          <h5 class="card-title">Camera Nudity Blur Detection</h5>
+          <p class="card-text">A camera system that automatically detects nudity and blurs inappropriate content using computer vision.</p>
+          <a href="#" target="_blank" class="btn btn-primary">Live Preview</a>
+        </div>
+      </div>
+      <div class="col-md-6 mb-4">
+        <div class="card p-3">
+          <h5 class="card-title">Parking System with IoT</h5>
+          <p class="card-text">An intelligent IoT-based system for real-time parking slot monitoring and availability tracking.</p>
+          <a href="#" target="_blank" class="btn btn-primary">Live Preview</a>
+        </div>
+      </div>
+      <div class="col-md-6 mb-4">
+        <div class="card p-3">
+          <h5 class="card-title">RFID Attendance System</h5>
+          <p class="card-text">A contactless student and teacher attendance system using RFID and real-time web interface.</p>
+          <a href="#" target="_blank" class="btn btn-primary">Live Preview</a>
+        </div>
+      </div>
+      <div class="col-md-6 mb-4">
+        <div class="card p-3">
+          <h5 class="card-title">Inventory System with IoT</h5>
+          <p class="card-text">A smart inventory tracker with sensors and automated updates to a centralized database.</p>
+          <a href="#" target="_blank" class="btn btn-primary">Live Preview</a>
+        </div>
+      </div>
+      <div class="col-md-6 mb-4">
+        <div class="card p-3">
+          <h5 class="card-title">Fall Detection System</h5>
+          <p class="card-text">A fall detection system that uses sensors and GSM for emergency alerts, ideal for elderly care.</p>
+          <a href="#" target="_blank" class="btn btn-primary">Live Preview</a>
+        </div>
+      </div>
+      <div class="col-md-6 mb-4">
+        <div class="card p-3">
+          <h5 class="card-title">Teacher Game Monitoring with Game App</h5>
+          <p class="card-text">An app and dashboard that tracks game-based learning sessions and student performance in real time.</p>
+          <a href="teacher_game_monitoring/index.html" target="_blank" class="btn btn-primary">Live Preview</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- Contact -->
 <section id="contact" class="py-5">
   <div class="container">
     <h2 class="section-title"><i class="bi bi-envelope"></i> Contact Me</h2>
-    <form id="contactForm">
+    <form>
       <div class="mb-3">
-        <label for="name" class="form-label">Name</label>
-        <input type="text" id="name" class="form-control bg-dark text-light" required />
+        <label for="name" class="form-label">Your Name</label>
+        <input type="text" class="form-control" id="name" placeholder="Enter your name" />
       </div>
       <div class="mb-3">
-        <label for="email" class="form-label">Email</label>
-        <input type="email" id="email" class="form-control bg-dark text-light" required />
+        <label for="email" class="form-label">Your Email</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter your email" />
       </div>
       <div class="mb-3">
         <label for="message" class="form-label">Message</label>
-        <textarea id="message" class="form-control bg-dark text-light" rows="4" required></textarea>
+        <textarea class="form-control" id="message" rows="4" placeholder="Your message"></textarea>
       </div>
-      <button type="submit" class="btn btn-success"><i class="bi bi-send"></i> Send</button>
+      <button type="submit" class="btn btn-primary"><i class="bi bi-send"></i> Send Message</button>
     </form>
   </div>
 </section>
@@ -261,18 +266,20 @@
 <!-- Footer -->
 <footer class="footer">
   <div class="container">
-    <p>&copy; 2025 Cris John | Made with <i class="bi bi-heart-fill text-danger"></i> & <code>&lt;/&gt;</code></p>
+    <p>&copy; 2025 Cris John Ramirez. All rights reserved.</p>
+    <p>
+      <a href="mailto:crisjohn@example.com" class="text-decoration-none text-light"><i class="bi bi-envelope"></i></a>
+      <a href="https://github.com/crisjohn" target="_blank" class="ms-3 text-decoration-none text-light"><i class="bi bi-github"></i></a>
+      <a href="https://linkedin.com/in/crisjohn" target="_blank" class="ms-3 text-decoration-none text-light"><i class="bi bi-linkedin"></i></a>
+    </p>
   </div>
 </footer>
 
 <!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-  document.getElementById('contactForm').addEventListener('submit', function (e) {
-    e.preventDefault();
-    alert('Thanks for reaching out! I will reply soon.');
-    this.reset();
-  });
+  AOS.init();
 </script>
 </body>
 </html>
